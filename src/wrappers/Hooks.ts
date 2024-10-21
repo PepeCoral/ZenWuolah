@@ -271,19 +271,20 @@ function hideElementsWithParent(parentClassName: string, indexes: number[]) {
         (child as HTMLElement).style["display"] = "none"
     });
   }
-  function addCssByClass(
-    className: string,
-    styles: { [key: string]: string }
-  ): void {
-    const elements = document.querySelectorAll(`.${className}`);
+}
+function addCssByClass(
+  className: string,
+  styles: { [key: string]: string }
+): void {
+  const elements = document.querySelectorAll(`.${className}`);
 
-    if (elements.length > 0) {
-      elements.forEach((element) => {
-        for (const property in styles) {
-          (element as HTMLElement).style[property as any] = styles[property];
-        }
-      });
-    } else {
-      console.error(`No elements found with selector "${className}".`);
-    }
+  if (elements.length > 0) {
+    elements.forEach((element) => {
+      for (const property in styles) {
+        (element as HTMLElement).style[property as any] = styles[property];
+      }
+    });
+  } else {
+    console.error(`No elements found with selector "${className}".`);
   }
+}
